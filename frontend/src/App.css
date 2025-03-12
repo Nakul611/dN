@@ -1,0 +1,265 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #090017;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main App */
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.input-container input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  color: white;
+  border-radius: 8px;
+  width: 220px;
+  font-size: 16px;
+}
+
+/* Button */
+.input-container button {
+  background: #a855f7;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.input-container button:hover {
+  background: #9333ea;
+  transform: scale(1.05);
+}
+
+/* Main Content */
+.main-content {
+  width: 90%;
+  max-width: 1400px;
+  text-align: center;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+/* Blockchain Container */
+.blockchain-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Ensures blocks and lines are aligned */
+  padding: 20px;
+  margin-top: 20px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #a855f7 transparent;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Wrap each block and connector */
+.block-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Block style */
+.block {
+  width: 80px;
+  height: 80px;
+  background-color: #1a1a2e;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid #a855f7;
+  font-weight: bold;
+}
+
+/* Block Link (Connector) */
+.block-link {
+  width: 60px; /* Adjust width to properly connect blocks */
+  height: 4px;
+  background: linear-gradient(90deg, #9333ea, #a855f7);
+  border-radius: 2px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+/* Hide connector for last block */
+.block-wrapper:last-child .block-link {
+  display: none;
+}
+
+/* Block Circles */
+.block-circle {
+  background-color: #9ca3af;
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #880f96;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.15),
+    -4px -4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+  border: 3px solid #ffffff;
+  padding: 10px;
+}
+
+.block-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 6px 6px 15px rgba(255, 255, 255, 0.2),
+    -6px -6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Block Name */
+.block-name {
+  font-size: 14px;
+  color: #a855f7;
+  margin-top: 5px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9333ea;
+  border-radius: 5px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(7px);
+}
+
+/* Modal Content */
+.modal-content {
+  background: #0d0f19;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 550px;
+  box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.3);
+  position: relative;
+  text-align: center;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ff4d4d;
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
+}
+
+/* Modal Grid */
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Each Detail Box */
+.detail-box {
+  background: rgba(62, 6, 72, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Label inside detail box */
+.detail-box strong {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
